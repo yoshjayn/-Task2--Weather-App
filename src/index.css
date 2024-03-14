@@ -5,9 +5,9 @@
 :root {
   --primary: #b5a1e5;
   --on-primary: #100e17;
-  --background: #131214;
+  --background: rgb(110, 39, 108);
   --on-background: #eae6f2;
-  --surface: #1d1c1f;
+  --surface: rgb(138, 38, 135);
   --on-surface: #dddae5;
   --on-surface-variant: #7b7980;
   --on-surface-variant-2: #b9b6bf;
@@ -131,11 +131,10 @@ html {
 }
 
 body {
-  /* background-color: var(--background); */
-  background-color: rgb(110, 39, 108);
+  background-color: var(--background);
+  padding: 30px;
   color: var(--on-background);
   font-size: var(--body-3);
-  overflow: hidden;
   font-family: var(--ff-nunito-sans);
 }
 
@@ -158,11 +157,9 @@ body {
   border-radius: var(--radius-pill);
 }
 
-.Box {
-  /* background-color: var(--surface); */
-  background-color: rgb(138, 38, 135);
+.box {
+  background-color: var(--surface);
   width: fit-content;
-  border-radius: 20px;
 }
 
 .label-1{
@@ -188,5 +185,5 @@ h1{
   padding: 2px 6px;
 }
 .tile .index{
-  font-size: var(--gradient-1);
+  font-size: var(--body-1);
 }
