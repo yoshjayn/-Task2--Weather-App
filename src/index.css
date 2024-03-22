@@ -5,9 +5,9 @@
 :root {
   --primary: #b5a1e5;
   --on-primary: #100e17;
-  --background: rgb(110, 39, 108);
+  --background: rgb(73, 25, 72);
   --on-background: #eae6f2;
-  --surface: rgb(138, 38, 135);
+  --surface: rgb(160, 41, 156);
   --on-surface: #dddae5;
   --on-surface-variant: #7b7980;
   --on-surface-variant-2: #b9b6bf;
@@ -174,11 +174,11 @@ h1{
   font-family: var(--ff-nunito-sans);
 }
 .tile{
-  background-color: rgb(26, 25, 28);
+  background-color: rgb(37, 3, 36);
   font-size: var(--label-2);
   opacity: 0.7;
 }
-.tile span{
+Content info{
   background-color: rgb(51, 255, 51);
   color: #100e17;
   border-radius: 25%;
@@ -186,4 +186,55 @@ h1{
 }
 .tile .index{
   font-size: var(--body-1);
+}
+.header {
+  color:purple;
+  display: flex; /* Arrange elements horizontally */
+  gap: 100px;
+  align-items: center; /* Align vertically */
+  justify-content: center;
+  min-width: 500px;
+  margin: 0 auto;
+  padding: 1rem; /* Add padding for spacing */
+  background-color: #f0f0f0; /* Optional background color */
+}
+
+
+.search-box {
+  display: flex;
+  align-items: center;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  overflow: hidden;
+  width: 200px; /* Adjust width as needed */
+  margin: 1rem auto; /* Center the search box */
+}
+
+.search-box input {
+  flex: 1; /* Allow input to grow and fill available space */
+  border: none;
+  outline: none;
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+}
+
+.search-box button {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0.5rem;
+}
+
+.search-box svg {
+  fill: #ccc;
+  transition: fill 0.2s ease;
+}
+
+.search-box button:hover svg {
+  fill: #000;
+}
+
+.search-field{
+  
 }

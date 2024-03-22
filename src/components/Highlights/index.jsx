@@ -2,78 +2,71 @@ import Box from "../common/Box";
 import Content from "../common/Content";
 import VisibilityIcon from "@mui/icons-material/Visibility";
 import AirIcon from "@mui/icons-material/Air";
-import WbSunnyIcon from "@mui/icons-material/WbSunny";
-import BedtimeIcon from "@mui/icons-material/Bedtime";
 import ThermostatIcon from "@mui/icons-material/Thermostat";
 import WaterDropIcon from "@mui/icons-material/WaterDrop";
 import WavesIcon from "@mui/icons-material/Waves";
+import SunriseSunset from "../SunriseSunset";
+// import SunriseSunset from './SunriseSunset'; // Adjust the path if needed
 
-const Highlights = () => {
+
+
+const Highlights = ({data}) => {
+
+const roundedMaxTemp = Math.round(data?.main?.temp_max);
+const roundedMinTemp = Math.round(data?.main?.temp_min);
   return (
     <Box>
       Today's Highlights
-      <div className="">
-        <div className="flex flex-row gap-10 pb-5 justify-between items-center">
-          <Content heading={"Air Quality Index"} info={"Good"}>
+      <div className="pt-10">
+        <div className="flex flex-row gap-10 pb-12 justify-between items-center">
+          <SunriseSunset data={data} /> {/* Render SunriseSunset with data */}
+      
+          <Content heading={"Wind & Temp"} >
             <div className="flex flex-row gap-10 justify-center items-center">
               <AirIcon style={{ fontSize: "30px" }} />
               <div className="flex flex-col gap-3 justify-center items-center">
-                PM25
-                <div className="index">1.32</div>
+                Direction
+                <div className="index">{data?.wind?.deg}°</div>
               </div>
               <div className="flex flex-col gap-3 justify-center items-center">
-                SO2
-                <div className="index">1.32</div>
+                Speed
+                <div className="index">{data?.wind?.speed}m/s</div>
               </div>
               <div className="flex flex-col gap-3 justify-center items-center">
-                NO2
-                <div className="index">1.32</div>
+                Max
+                <div className="index">{roundedMaxTemp}°</div>
               </div>
               <div className="flex flex-col gap-3 justify-center items-center">
-                O3
-                <div className="index">1.32</div>
+                Min
+                <div className="index">{roundedMinTemp}°</div>
               </div>
             </div>
           </Content>
 
-          <Content heading={"Sunrise & Sunset"}>
-            <div className="flex flex-row gap-10 justify-center items-center">
-              <WbSunnyIcon style={{ fontSize: "30px" }} />
-              <div className="flex flex-col gap-3 justify-center items-center">
-                Sunrise
-                <div className="index">1.32 AM</div>
-              </div>
-              <BedtimeIcon style={{ fontSize: "30px" }} />
-              <div className="flex flex-col gap-3 justify-center items-center">
-                Sunset
-                <div className="index">1.32 PM</div>
-              </div>
-            </div>
-          </Content>
         </div>
         <div className="flex flex-row pb-5 justify-between items-center">
-          <Content heading={"Humidity"}>
+          <Content heading={"Humidity (0-100)"}>
             <div className="flex flex-row gap-12 items-center">
               <WaterDropIcon style={{ fontSize: "30px" }} />
-              <div className="index">60%</div>
+              <div className="index">{data?.main?.humidity}</div>
             </div>
           </Content>
-          <Content heading={"Pressure"}>
+          <Content heading={"Pressure (in hPa)"}>
             <div className="flex flex-row gap-12 items-center">
               <WavesIcon style={{ fontSize: "30px" }} />
-              <div className="index">1100hPa</div>
+              <div className="index">{data?.main?.pressure}</div>
             </div>
           </Content>
-          <Content heading={"Visibility"}>
+          <Content heading={"Visibility (in meters)"}>
             <div className="flex flex-row gap-12 items-center">
               <VisibilityIcon style={{ fontSize: "30px" }} />
-              <div className="index">10km</div>
+              <div className="index">{data?.visibility}</div>
             </div>
           </Content>
-          <Content heading={"Feels Like"}>
+          <Content heading={"Feels Like (in Kelvin)"}>
             <div className="flex flex-row gap-12 items-center">
               <ThermostatIcon style={{ fontSize: "30px" }} />
-              <div className="index">13ºc</div>
+              <div className="index">{data?.main?.feels_like}</div>
             </div>
           </Content>
         </div>
